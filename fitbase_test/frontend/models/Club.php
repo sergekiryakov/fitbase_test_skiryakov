@@ -124,20 +124,33 @@ class Club extends ActiveRecord implements SoftDeleteInterface
         ];
     }
 
+     /**
+     * Gets author [[User]].
+     *
+     * @return ActiveQuery
+     */
     public function getAuthor()
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
+    /**
+     * Gets editor [[User]].
+     *
+     * @return ActiveQuery
+     */
     public function getEditor()
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 
+    /**
+     * Gets deleter [[User]].
+     *
+     * @return ActiveQuery
+     */
     public function getDeleter()
     {
         return $this->hasOne(User::class, ['id' => 'deleted_by']);
     }
-
-    
 }

@@ -29,7 +29,6 @@ class SoftDeleteQuery extends ActiveQuery
 
     protected function getPrimaryTableName(): string
     {
-        // ActiveQuery::getPrimaryTableName exists in Yii2 >=2.0.14, fallback:
         $meta = $this->modelClass ? $this->modelClass::tableName() : '';
         return $meta;
     }
